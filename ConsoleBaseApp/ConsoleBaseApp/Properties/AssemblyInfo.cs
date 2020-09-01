@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -36,4 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // read Log4Net Configuration file
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = @"log4net.config.xml", Watch = true)]
+[assembly: log4net.Config.XmlConfigurator(Watch = false)]

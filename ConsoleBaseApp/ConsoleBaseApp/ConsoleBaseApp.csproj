@@ -113,9 +113,6 @@
     <None Include="App.Debug.config">
       <DependentUpon>App.config</DependentUpon>
     </None>
-    <None Include="App.master.config">
-      <DependentUpon>App.config</DependentUpon>
-    </None>
     <None Include="App.production.config">
       <DependentUpon>App.config</DependentUpon>
     </None>
@@ -131,7 +128,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="log4net.config.xml">
+    <Content Include="log4net.config.staging.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="log4net.config.Release.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="log4net.config.production.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="log4net.config.Debug.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
