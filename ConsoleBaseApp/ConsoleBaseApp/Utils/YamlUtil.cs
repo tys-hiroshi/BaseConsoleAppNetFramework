@@ -11,16 +11,25 @@ namespace ConsoleBaseApp.Utils
 {
     public class YamlUtil
     {
-        public class YamlImporter
+        public class YamlImporter<T>
         {
-            public Models.ImportYaml.DeserializedObject Deserialize(string yamlName)
+            public T Deserialize(string yamlName)
             {
-                StreamReader sr = new StreamReader(yamlName);
+                var sr = new StreamReader(yamlName);
                 string text = sr.ReadToEnd();
                 var input = new StringReader(text);
                 var deserializer = new Deserializer();
-                Models.ImportYaml.DeserializedObject deserializeObject = deserializer.Deserialize<Models.ImportYaml.DeserializedObject>(input);
+                T deserializeObject = deserializer.Deserialize<T>(input);
                 return deserializeObject;
+            }
+        }
+
+        public class YamlExporter<T>
+        {
+            public string Serialize(T model)
+            {
+                ISerializer serializer = new SerializerBuilder().WithNamingConvention(CamelCaseNamingConvention.Instance).Build();
+                return serializer.Serialize(model);
             }
         }
     }
